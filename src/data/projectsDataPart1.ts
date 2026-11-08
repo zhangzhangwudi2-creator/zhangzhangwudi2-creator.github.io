@@ -30,8 +30,8 @@ export const PROJECTS_PART_1: ProjectDetail[] = [
     ],
     techStack: ['Python 3.12', 'Bass ODE 动力学', 'Playwright CDP', 'DeepSeek API', 'Pydantic', 'Streamlit', 'Plotly', 'SQLite'],
     links: [
-      { label: '飞书答辩与实证报告', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' },
-      { label: 'GitHub 仓库', url: 'https://github.com/zhangzhangwudi2-creator', type: 'github' }
+      { label: 'GitHub 源码仓库 (xianyu-lifecycle-llm)', url: 'https://github.com/zhangzhangwudi2-creator/xianyu-lifecycle-llm', type: 'github' },
+      { label: '飞书答辩与实证报告', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
     ]
   },
   {
