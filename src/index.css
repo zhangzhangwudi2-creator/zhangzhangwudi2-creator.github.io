@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #FFFDF7;
+  color: #2C221E;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark body {
+  background-color: #181512;
+  color: #F5EFEB;
+}
+
+/* 显式颜色保底类，防止任何构建缓存导致颜色丢失 */
+.bg-oatmeal { background-color: #FFFDF7 !important; }
+html.dark .dark\:bg-dark-oat { background-color: #181512 !important; }
+html.dark .dark\:bg-dark-surface { background-color: #241F1B !important; }
+
+.bg-nailong { background-color: #FFD43B !important; color: #2C221E !important; }
+.hover\:bg-nailong-dark:hover { background-color: #FCC419 !important; }
+.bg-capy { background-color: #FF922B !important; color: #FFFFFF !important; }
+.hover\:bg-capy-dark:hover { background-color: #F76707 !important; }
+.bg-matcha { background-color: #2B8A3E !important; color: #FFFFFF !important; }
+
+.text-coffee { color: #2C221E; }
+html.dark .dark\:text-white { color: #FFFFFF !important; }
+html.dark .dark\:text-zinc-100 { color: #F4F4F5 !important; }
+html.dark .dark\:text-zinc-200 { color: #E4E4E7 !important; }
+html.dark .dark\:text-zinc-300 { color: #D4D4D8 !important; }
+html.dark .dark\:text-nailong { color: #FFD43B !important; }
+
+.text-capy { color: #F76707 !important; }
+.text-capy-dark { color: #D9480F !important; }
+.text-matcha { color: #2B8A3E !important; }
+.border-coffee { border-color: #2C221E !important; }
+
+/* 暖色波点底纹 (Polka Dot) */
+.bg-cozy-dots {
+  background-image: radial-gradient(rgba(44, 34, 30, 0.1) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+html.dark .bg-cozy-dots {
+  background-image: radial-gradient(rgba(255, 212, 59, 0.08) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Neo-Brutalism Q弹贴纸卡片 */
+.sticker-card {
+  background-color: #FFFFFF;
+  color: #2C221E;
+  border: 2.5px solid #2C221E;
+  box-shadow: 4px 4px 0px #2C221E;
+  border-radius: 16px;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+}
+
+.sticker-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0px #2C221E;
+}
+
+html.dark .sticker-card {
+  background-color: #241F1B;
+  color: #F5EFEB;
+  border: 2.5px solid #5C4D42;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+html.dark .sticker-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0px #000000;
+  border-color: #FFD43B;
+}
+
+.shadow-brutal-sm { box-shadow: 2px 2px 0px #2C221E; }
+.shadow-brutal { box-shadow: 4px 4px 0px #2C221E; }
+html.dark .shadow-brutal-sm { box-shadow: 2px 2px 0px #000000; }
+html.dark .shadow-brutal { box-shadow: 4px 4px 0px #000000; }
