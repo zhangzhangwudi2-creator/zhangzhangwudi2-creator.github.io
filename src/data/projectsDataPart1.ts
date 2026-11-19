@@ -7,26 +7,26 @@ export const PROJECTS_PART_1: ProjectDetail[] = [
     role: '课题负责人 · 独立全栈与算法架构',
     date: '2026.10 - 2026.11',
     categories: ['fullstack', 'qa'],
-    summary: '面向二手平台虚拟资产交易，构建底层 CDP 旁路网络逆向、Bass 微分方程动力学拟合、大模型语义抽取与 Streamlit 交互大屏的端到端系统。',
+    summary: '面向二手平台虚拟资产交易，构建 Playwright CDP 旁路收集、数值差分 Bass TRF 反伪拟合与 SQLite 双库隔离的选品及 24H 店铺运营中枢。',
     pipeline: [
       'Playwright CDP 旁路嗅探',
-      'SQLite 时序快照库',
-      'Bass ODE 非线性最小二乘拟合',
-      'DeepSeek + Pydantic 风险定级',
-      'Streamlit 选品雷达大屏'
+      'SQLite 双库物理隔离',
+      'Bass TRF ≥6 期硬熔断拟合',
+      '4 品类语义与合规分级',
+      'BEGIN IMMEDIATE 客服发货中枢'
     ],
-    tags: ['毕业设计', 'Bass 微分方程', 'Playwright CDP', 'DeepSeek', 'Pydantic', 'Streamlit', 'Trust Region Reflective'],
-    painPoint: '二手平台数字虚拟商品信息差大、老旧死链充斥，传统静态平均流速无法刻画非线性爆发与平台算法推流的社交从众机制。',
+    tags: ['毕业设计', 'Bass TRF 反伪拟合', 'Playwright CDP', 'SQLite WAL/热备', '防串话护栏', 'Streamlit'],
+    painPoint: '二手平台数字虚拟商品信息差大、老旧死链充斥，单期截面自由度不足极易造成伪拟合，而运营自动化若缺少硬约束会引发砍穿底价、超卖或错发买家卡密。',
     solution: [
-      'CDP 旁路嗅探与准时序重构：通过 Playwright 挂载持久化 Chrome 上下文，在 CDP 网络层旁路嗅探 MTOP 响应流，基于历史评论时间戳与想要数快照差分重构准时序截面，毫秒级入库 143 款商品。',
-      '物理约束 Bass 微分方程拟合：采用线性化先验初值估算 + 物理边界约束（Trust Region Reflective 算法）求解 Bass 常微分方程 p, q, m 参数，高精度推断起飞点 t1、峰值 t* 与衰竭点 t2。',
-      '独创 TOS 蓝海算子与合规防火墙：综合想要流速、客单价、CR4 行业集中度与 L0~L3 四级风险评级构建科学机会指数；基于 Pydantic 实体抽取剥离营销废话。',
-      'Streamlit 交互大屏：打造暴利黑马选品雷达、Bass 演化 S 曲线、职业倒爷天眼（识别出 34 位矩阵号）与合规审查四大全景视窗。'
+      'CDP 旁路嗅探与双库物理隔离：通过 Playwright 单页复用 + _pump_wait 事件泵拦截 MTOP 响应与 PID 文件锁定时追踪，在 xianyu_lifecycle.db 沉淀 2,329 款商品、1,705 位卖家与 2,950 条日快照（含 40 件 ≥6 期 real_panel），并与商业运营库 xianyu_ops.db（6 张表）物理隔离。',
+      '数值差分 Bass 拟合与反伪拟合熔断：经中心有限差分验证后主动禁用存在误差的解析雅可比矩阵，改用 scipy TRF 数值导数与 ≥6 期单调真实面板硬熔断机制，拒绝单期截面伪拟合。',
+      '4 品类语义与 TOS 选品筛选：整合 Pydantic 强 Schema 与覆盖考公/简历/会员/Python 4 大赛道的确定性规则引擎，解决会员品类误落默认分支问题并接入 Tab2 面板期数优先过滤与 Tab3 动态赛道矩阵。',
+      '24H 店铺运营护栏与幂等发货：实现 dry_run 默认隔离、底价硬锁/站外引流拦截、paid_verified + BEGIN IMMEDIATE 原子核销卡密及按 session_id 切换标题校验防串话护栏。'
     ],
     metrics: [
-      'Bass 动力学拟合优度 R² > 0.96 (远高于线性均值模型 R²=0.41)',
-      '成功从 107 位卖家画像中识别出 34 位职业倒爷/矩阵号',
-      '完成论文第四/五章学术正文与 5 张标准三线表'
+      '实证库累计沉淀 2,329 款商品 / 1,705 位卖家 / 2,950 条快照（40 件 ≥6 期 real_panel）',
+      '答辩基线 git tag (thesis-frozen-v1) 与运营库物理隔离 · BEGIN IMMEDIATE 防超卖',
+      'test_ops_suite 7 大闭环对抗与 4 层测试框架验证通过（人工 60 条金标持续补充中）'
     ],
     techStack: ['Python 3.12', 'Bass ODE 动力学', 'Playwright CDP', 'DeepSeek API', 'Pydantic', 'Streamlit', 'Plotly', 'SQLite'],
     links: [
@@ -81,18 +81,18 @@ export const PROJECTS_PART_1: ProjectDetail[] = [
       'SSE 流式 LLM 代理',
       'GPT-SoVITS 克隆口型同步'
     ],
-    tags: ['PySide6', 'DWM ARGB32', 'Faster-Whisper', 'GPT-SoVITS', 'SSE 流式', '92项 pytest'],
+    tags: ['PySide6', 'DWM ARGB32', 'Faster-Whisper', 'GPT-SoVITS 9888代理', 'SSE 流式', '146项 pytest'],
     painPoint: '传统 pywebview/Electron 桌宠易出现白边矩形底框与高内存膨胀，且语音识别、世界书记忆、嘴型同步与跨服务显存冲突极易引发卡死。',
     solution: [
       'DWM 逐像素真透明与脚底锚点缩放：基于 PySide6 WA_TranslucentBackground 与预乘 ARGB32 渲染彻底消除白边，内存仅 ~50MB / 待机 CPU < 0.5%；推导脚底居中锁定公式支持 50%–200% 滚轮无漂移缩放。',
       '多造型资产流水线与 7 态 FSM：通过 rembg + ffmpeg 从原片批量提取并自动裁边，内置 10 套换装与呼吸/眨眼/弹跳/思考/说话/睡眠状态机。',
-      '本地多模态语音交互链路：集成 Faster-Whisper 本地按键 ASR、SillyTavern 兼容 JSON 世界书与持久化记忆引擎、SSE 流式字幕气泡及 GPT-SoVITS 克隆配音嘴型同步（附离线声效兜底）。',
-      '4 层对抗测试覆盖：针对语音隔离、精灵质量、PySide6 窗口生命周期与小游戏联动构建 4 大模块 92 项 pytest 用例。'
+      '本地多模态语音链路与显存热切代理：集成 Faster-Whisper 本地按键 ASR、SillyTavern 兼容世界书记忆、SSE 流式气泡及 9888→9880 零显存 GPT-SoVITS 权重热切代理（另完成阿里云 cosyvoice-v3-plus 离线音色验证，主网关按需待接入）。',
+      '4 层对抗测试覆盖：针对语音隔离、精灵质量、PySide6 窗口生命周期与小游戏联动构建 146 项 pytest 用例集（核心 4 模块 92 项实测 74.04s 全绿）。'
     ],
     metrics: [
-      '92 项 4 层 pytest 自动化测试 100% 通过 (74.04s)',
+      '4 层 pytest 测试集共 146 项（核心 4 模块 92 项实测 100% 通过 · 74.04s）',
       '原生 ARGB32 透明渲染内存仅 ~50MB · 待机 CPU < 0.5%',
-      '内置 10 套换装资产与 43 项精灵资产质检全过'
+      '9888→9880 零额外显存热切，内置 10 套换装与 43 项精灵资产质检全过'
     ],
     techStack: ['Python 3.12', 'PySide6', 'Faster-Whisper', 'GPT-SoVITS', 'rembg', 'ffmpeg', 'pytest'],
     links: [
@@ -113,17 +113,17 @@ export const PROJECTS_PART_1: ProjectDetail[] = [
       'gflow 视频调度执行',
       'pyJianYingDraft 剪映导出'
     ],
-    tags: ['FastAPI Web UI', 'SequentialFailoverRouter', 'gflow-cli', 'pyJianYingDraft', 'Pydantic', '41项 pytest'],
-    painPoint: '网文改编漫剧需人工逐段拆镜、写提示词并手动导入剪映拼接，同时多 API Key 遭遇 429 限流或报错时极易中断批量生产并泄露密钥日志。',
+    tags: ['FastAPI Web UI', 'SequentialFailoverRouter', 'gflow-cli', 'pyJianYingDraft', 'Pydantic', '81项 pytest'],
+    painPoint: '网文改编漫剧需人工逐段拆镜、写提示词并手动导入剪映拼接，同时多 API Key 遭遇 429、本地网关受系统代理劫持或 CLI 参数错配时极易悄无声息降级失败。',
     solution: [
-      '端到端自动化内容流水线：实现 MuMuAINovel SQLite / harnessNovel 剧本读取、scene_analyzer 场景拆解、storyboard_gen 分镜提示词生成、gflow_runner 视频调度到 pyJianYingDraft 剪映草稿一键落盘。',
-      '自研顺序故障转移路由 (SequentialFailoverRouter)：支持单 Key 顺序故障切换与 DeepSeek 自动兜底，严格区分 401/403 不可重试错误与 429/5xx 瞬态重试，并内置正则表达式自动脱敏日志中的全部密钥。',
-      '可视化工作台与 Mock 沙盒验证：搭建双端 Web UI（小说 8766 / 视频 8780），配套可编程 429/503/畸形包 Mock LLM 服务完成全流程无损回归。'
+      '端到端自动化内容流水线与 CLI 参数对齐：完成 MuMuAINovel / harnessNovel 剧本桥接、scene_analyzer 拆解、storyboard_gen 4~6s 分镜校验、gflow_runner（对齐 --name 命名参数）到 pyJianYingDraft 剪映草稿落盘，目前正推进真账号首次实弹联调。',
+      '自研顺序故障转移路由 (SequentialFailoverRouter)：支持 gemini_transport="auto" 自动识别纯 NewAPI 配置，对 127.0.0.1/localhost 自动启用 trust_env=False 绕过代理劫持，严格区分 401/403 与 429 轮转并正则脱敏密钥，分镜失败显式记录 fallback_reason（支持 strict_llm 强报错）。',
+      '可视化工作台与 Mock 沙盒验证：搭建双端 Web UI（小说 8766 / 视频 8780），配套可编程 429/503/畸形包 Mock 服务完成单元 + E2E 全量无损回归。'
     ],
     metrics: [
-      '41 项单元与端到端 pytest 测试 100% 通过 (17.81s)',
-      '内置 429 轮转、DeepSeek 兜底与正则密钥日志 100% 脱敏',
-      '打通从网文 SQLite 章节到剪映可编辑草稿全自动落盘'
+      '81 项单元与 E2E pytest 测试 100% 通过（含 40 单元 + 41 端到端，27.21s）',
+      '实现 429 轮转、回环 trust_env=False 防代理劫持与密钥日志 100% 脱敏',
+      '打通从网文 SQLite 章节到剪映可编辑草稿全自动落盘（待实弹联调）'
     ],
     techStack: ['Python 3.12', 'FastAPI', 'Pydantic v2', 'pyJianYingDraft', 'gflow-cli', 'SQLite', 'pytest'],
     links: [

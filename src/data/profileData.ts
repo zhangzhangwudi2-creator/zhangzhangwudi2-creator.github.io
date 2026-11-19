@@ -4,7 +4,7 @@ export const PERSONAL_INFO = {
   name: '张凡',
   title: 'AI 应用全栈开发 / 大模型与 Agent 工程开发 / Agent 平台测试开发',
   subtitle: '长春科技学院 · 数据科学与大数据技术专业（统招本科 2027 届 · 班级学习委员）',
-  bio: '兼备「AI 应用全栈落地开发（PySide6 原生桌面图形 + Node.js/FastAPI 微服务 + 多模态语音/视频管线）」与「大模型/Agent 质量保障与系统评测（Bass 动力学建模 + 4 层黑盒 E2E + Claims Gate 防线）」双重实战经验。',
+  bio: '兼备「AI 应用全栈落地开发（FastAPI / PySide6 原生桌面 / Node.js 代理 / 多模态语音与视频管线）」与「大模型/Agent 质量保障与系统评测（Bass 动力学熔断建模 / 4 层黑盒 E2E / 确定性事实与规则守门）」双重实战经验。',
   location: '苏州 / 杭州 / 上海',
   contacts: {
     email: '2815042375@qq.com',
@@ -19,13 +19,13 @@ export const PERSONAL_INFO = {
 export const CORE_METRICS: MetricItem[] = [
   {
     id: 'thesis-bass-r2',
-    value: 'R² > 0.96',
-    label: 'Bass 扩散拟合优度',
-    description: '本科毕设独创常微分方程动力学反演拐点，远超线性回归 R²=0.41。',
-    badge: '毕业设计核心创新',
+    value: '2,329 样本',
+    label: '闲鱼毕设实证与店铺中枢',
+    description: '40 件 ≥6 期 real_panel 强制防伪拟合熔断 + 双库隔离 + 原子卡密核销。',
+    badge: '毕业设计 · 计量与运营',
     targetProjectId: 'thesis-xianyu-lifecycle',
-    funComment: '🦫 噜噜认证：Bass 方程拟合 R² > 0.96，稳如老豚！',
-    seriousComment: '非线性动力学拟合，精准识别爆发黑马商品生命周期。'
+    funComment: '🦫 噜噜认证：够 6 期真实面板才准拟合，还有防串话+防超卖双保镖！',
+    seriousComment: '数值差分 Bass TRF + BEGIN IMMEDIATE 卡密锁 + 会话切换二次核验。'
   },
   {
     id: 'tavern-channels',
@@ -39,42 +39,42 @@ export const CORE_METRICS: MetricItem[] = [
   },
   {
     id: 'lulu-pet-qa',
-    value: '92 Passed',
+    value: '146 Tests',
     label: 'PySide6 真透明 AI 桌宠',
-    description: 'DWM ARGB32 逐像素透明（~50MB 内存），ASR+SSE+克隆语音 4 层全绿。',
+    description: 'DWM ARGB32 逐像素透明（~50MB 内存），9888→9880 零显存热切 + 146 项用例。',
     badge: '原生桌面伴侣',
     targetProjectId: 'capybara-lulu-pet',
     funComment: '🦫 50MB 内存占着桌面卖萌，还会听懂人话和变 10 套皮肤！',
-    seriousComment: '脚底锚点缩放 + 10 套状态机 + 4 个模块 92 项 pytest 100% 通过。'
+    seriousComment: '脚底锚点缩放 + 10 套状态机 + 4 层 146 项 pytest 覆盖（核心 92 项全绿）。'
   },
   {
     id: 'novel-video-flow',
-    value: '41/41 E2E',
+    value: '81 Passed',
     label: '小说→漫剧→剪映管线',
-    description: 'AI 剧本桥接、分镜调度、顺序故障转移路由与 pyJianYingDraft 自动出稿。',
+    description: '81 项单元/E2E 全绿（含 429 轮转脱敏、gflow 参数与本地回环代理隔离）。',
     badge: 'AIGC 工业管线',
     targetProjectId: 'ai-novel-video-studio',
-    funComment: '🎬 小说进、剪映草稿出，密钥还会自动轮转脱敏不裸奔！',
-    seriousComment: 'SequentialFailoverRouter + 单元/端到端 41 项测试 100% 通过。'
+    funComment: '🎬 81 项测试全绿护航：小说拆镜进、剪映草稿出，密钥绝不裸奔！',
+    seriousComment: 'SequentialFailoverRouter(auto) + trust_env=False + 81 项 pytest 27.21s 全绿。'
   },
   {
     id: 'desktop-size',
-    value: '13.7 MB',
-    label: '极简单文件免安装',
-    description: 'PyInstaller 动态挂载与 Web 资源压缩，结构化解析崩溃率降至 0%。',
-    badge: 'AI 求职助手',
+    value: '63/63 Tests',
+    label: 'AI 求职助手 Web/CI 生产版',
+    description: 'FastAPI + ReportLab 生产服务，fact_guard 防篡改 + 防绕过限流 + 422 拒丢照。',
+    badge: 'FastAPI 安全守门',
     targetProjectId: 'ai-job-assistant',
-    funComment: '🦖 比奶龙瘦十圈：告别臃肿 Electron，内存仅 50MB！',
-    seriousComment: 'Bottle + WebView2 轻量视窗，栈平衡括号匹配消除截断崩溃。'
+    funComment: '🦖 删号改名直接拦下、没证件照 422 拒导出，63 项 pytest 稳如老狗！',
+    seriousComment: '<UNTRUSTED_*> 隔离 + 最右可信 XFF 限流 + 双/单栏 PDF 降级（63/63 通过）。'
   },
   {
     id: 'qa-coverage',
-    value: '169 Passed',
-    label: '多模态测试与金融基准',
-    description: '169 项 pytest 契约/死锁注入全绿 + 200+ 金融动态公式 Rubrics 基准。',
-    badge: '测试开发与评测',
+    value: '4维+25卡',
+    label: 'ContentOps 质检与金融评测',
+    description: '主动砍掉伪流量预测改为 4×25 规则打分（node:test全绿）+ 200+ 公式 Rubrics。',
+    badge: '可复现评测工程',
     targetProjectId: 'multimodal-pipeline-qa',
-    funComment: '🟢 咕咕嘎嘎！169 项 pytest 配 25+ 条评分卡，死锁幻觉全拦住！',
-    seriousComment: 'Claims Gate 守门 + TTL 租约回滚 + 25+ 原子化金融 Rubrics。'
+    funComment: '🟢 咕咕嘎嘎！不编造假阅读量，4×25 规则配 25+ 金融卡全可复现！',
+    seriousComment: 'contentEvaluator 确定性 evidence[] 溯源 + openpyxl 200+ 动态公式真值。'
   }
 ];

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Sparkles, Terminal, ShieldCheck, Activity, RefreshCw } from 'lucide-react';
 
 const QUOTES = [
-  '🦫 噜噜认证：Bass 方程拟合 R² > 0.96，92 项桌宠 pytest 全绿！',
-  '🦖 奶龙大肚皮 vs 我的 13.7MB 极简单文件 + 50MB 真透明桌宠！',
+  '🦫 噜噜认证：够 6 期真实面板才准 Bass 拟合，2,329 款样本防伪熔断！',
+  '🦖 原生 DWM ARGB32 真透明桌宠只占 ~50MB 内存，9888→9880 零显存热切！',
   '🍊 TTS 缓存命中仅 14ms，76 项酒馆黑盒 E2E 与 6 个反例全防住！',
-  '🎬 小说直通剪映草稿 41 项全绿，密钥正则脱敏绝不裸奔！',
-  '🐧 咕咕嘎嘎！全栈 378 项自动化测试通通 All Green 🟢'
+  '🎬 小说直通剪映草稿 81 项 pytest 全绿，密钥正则脱敏绝不裸奔！',
+  '🐧 咕咕嘎嘎！FastAPI 63 项防篡改守门 + ContentOps 4×25 规则全可复现 🟢'
 ];
 
 type MascotTab = 'lulu' | 'nailong' | 'guga';
@@ -51,16 +51,16 @@ export const CapybaraWidget: React.FC<CapybaraWidgetProps> = ({ isGuguMode }) =>
         </div>
         <div className="space-y-2 text-[11px]">
           <div className="flex justify-between items-center p-2 rounded-lg bg-[#FFFDF7] dark:bg-black/30 border border-[#2C221E]/30">
-            <span className="text-zinc-500 flex items-center gap-1"><Activity className="w-3.5 h-3.5 text-[#F76707]" /> Bass ODE Fit</span>
-            <span className="font-black">R² = 0.9612 (NLS)</span>
+            <span className="text-zinc-500 flex items-center gap-1"><Activity className="w-3.5 h-3.5 text-[#F76707]" /> Bass &amp; Ops DB</span>
+            <span className="font-black">2,329 样本 / 40 组≥6期</span>
           </div>
           <div className="flex justify-between items-center p-2 rounded-lg bg-[#FFFDF7] dark:bg-black/30 border border-[#2C221E]/30">
             <span className="text-zinc-500 flex items-center gap-1"><Terminal className="w-3.5 h-3.5 text-[#2B8A3E]" /> Tavern &amp; TTS</span>
             <span className="font-black text-[#2B8A3E]">76/76 E2E · 14ms</span>
           </div>
           <div className="flex justify-between items-center p-2 rounded-lg bg-[#FFFDF7] dark:bg-black/30 border border-[#2C221E]/30">
-            <span className="text-zinc-500 flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-[#F76707]" /> Lulu &amp; Flow QA</span>
-            <span className="font-black">92 + 41 + 169 PASS</span>
+            <span className="text-zinc-500 flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-[#F76707]" /> Flow &amp; FastAPI QA</span>
+            <span className="font-black">81 + 63 + 2 PASS</span>
           </div>
         </div>
       </div>

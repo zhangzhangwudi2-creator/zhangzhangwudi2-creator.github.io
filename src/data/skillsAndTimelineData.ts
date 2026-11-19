@@ -3,21 +3,21 @@ import { SkillCategory, TimelineItem } from './types';
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: 'AI 应用与原生桌面全栈',
-    description: '深入模型原生协议与桌面图形渲染，打造轻量高响应工程应用',
+    description: '深入模型原生协议与桌面图形渲染，打造高可靠性工程应用',
     skills: [
-      { name: 'Python (FastAPI / Bottle / Pydantic)', highlight: true },
+      { name: 'Python (FastAPI / ReportLab / Pydantic v2)', highlight: true },
       { name: 'PySide6 (DWM 逐像素透明 / QThread)', highlight: true },
-      { name: 'Node.js 服务端代理与 SSE 流式传输', highlight: true },
-      { name: 'OpenAI / DeepSeek / Gemini 协议路由', highlight: true },
-      { name: 'Edge WebView2 & PyInstaller 单文件落盘' },
-      { name: 'React / TypeScript / Tailwind CSS' }
+      { name: 'Node.js / Express 4 + React 19 + TS', highlight: true },
+      { name: 'OpenAI / DeepSeek / Gemini 故障转移路由', highlight: true },
+      { name: 'Playwright CDP 旁路与状态持久恢复' },
+      { name: 'Tesseract.js 浏览器 OCR 与 PDF 降级排版' }
     ]
   },
   {
     title: '多模态语音与 AIGC 管线',
     description: '打通声学克隆、语音识别、分镜调度与剪映草稿工程化闭环',
     skills: [
-      { name: 'GPT-SoVITS 推理代理与显存调度', highlight: true },
+      { name: 'GPT-SoVITS 代理与 9888→9880 零显存热切', highlight: true },
       { name: 'Faster-Whisper 本地实时语音识别', highlight: true },
       { name: 'pyJianYingDraft 剪映草稿自动化', highlight: true },
       { name: 'rembg / ffmpeg 透明序列帧资产管线' },
@@ -26,11 +26,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     title: 'Agent 评测与 4 层测试开发',
-    description: '量化推理边界，构建黑盒回归、状态机注入与合规防御门禁',
+    description: '量化推理边界，构建黑盒回归、事实防篡改与确定性规则守门',
     skills: [
       { name: '4 层黑盒 E2E 与恶意反例防御测试', highlight: true },
-      { name: 'pytest 契约测试与 Mock 回放套件', highlight: true },
-      { name: 'Claims Gate 幻觉阻断与故障转移路由', highlight: true },
+      { name: 'fact_guard 实体防篡改 & XFF 防绕过限流', highlight: true },
+      { name: '4×25 规则评测器与 evidence[] 证据溯源', highlight: true },
       { name: '原子化 Rubrics 评分矩阵 (25+ 条)' },
       { name: 'openpyxl 动态真值研制 (200+ 公式)' }
     ]
@@ -40,8 +40,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     description: '基于隧道穿透、回环收敛与数据滚动备份打造零暴露基础设施',
     skills: [
       { name: 'Cloudflare Pages / Tunnel (CF-Connecting-IP)', highlight: true },
-      { name: 'NewAPI 多渠道探活与 429 自动熔断', highlight: true },
-      { name: 'SQLite WAL 在线备份与数据隔离' },
+      { name: 'NewAPI 异构路由与健康探活治理', highlight: true },
+      { name: 'SQLite WAL / conn.backup 热备与双库隔离' },
       { name: '环境变量凭据隔离与日志正则脱敏' },
       { name: 'Git / Linux / PowerShell 自动化编排' }
     ]

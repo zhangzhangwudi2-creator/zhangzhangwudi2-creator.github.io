@@ -3,32 +3,32 @@ import { ProjectDetail } from './types';
 export const PROJECTS_PART_2: ProjectDetail[] = [
   {
     id: 'ai-job-assistant',
-    title: '面向求职场景的智能诊断 Agent 与多引擎全栈桌面系统 (AI求职助手)',
-    role: '独立全栈开发',
-    date: '2026.09 - 2026.10',
+    title: 'AI 求职助手 Web/CI 生产级服务与大模型事实守门系统 (aiqiuzhizhe-publish)',
+    role: '独立全栈开发 · 安全与 QA 架构',
+    date: '2026.08 - 2026.10',
     categories: ['fullstack', 'qa'],
-    summary: '针对求职者简历质量参差且模型调用昂贵的痛点，开发融合简历深度诊断、STAR 法则润色与面试题预测的桌面级智能体应用。',
+    summary: '面向公开公网部署的 FastAPI + ReportLab 简历诊断与定向重构服务，聚焦防提示词注入、联系方式/教育背景防篡改、防绕过限流与保真 PDF 导出。',
     pipeline: [
-      'Edge WebView2 原生视窗',
-      'Python Bottle 微服务',
-      '状态机与栈平衡括号匹配',
-      '多引擎自适应路由',
-      'PyInstaller 13.7MB 单文件落盘'
+      'Tesseract.js 浏览器 OCR',
+      'SHA-256 6h 缓存 + XFF 防绕过限流',
+      'XML 标签边界隔离',
+      'fact_guard.py 确定性防篡改',
+      'ReportLab 无照 422 拦截 + 双/单栏降级'
     ],
-    tags: ['Python', 'Bottle', 'WebView2', '栈平衡括号匹配', 'DeepSeek API', 'PyInstaller'],
-    painPoint: '普通求职者难以定位简历软肋，直接调用商业大模型成本高昂，且多渠道反代下模型输出易夹带 Markdown 代码块或尾部截断导致解析崩溃。',
+    tags: ['FastAPI v1.2.0', 'ReportLab', 'fact_guard.py', 'Tesseract.js', 'X-Forwarded-For 限流', '63项 pytest'],
+    painPoint: '公网简历改写服务易遭客户端伪造 X-Forwarded-For 刷额度，模型改写常丢删手机号/邮箱或捏造名校履历，且无头容器导出中文 PDF 易丢失证件照或排版溢出。',
     solution: [
-      '前后端同构轻量化架构：采用 Python Bottle 微服务结合 Edge WebView2 原生视窗，摆脱 Electron 笨重依赖，内存占用仅 50MB。',
-      '自研状态机与栈平衡括号匹配引擎：针对大模型输出易夹带 Markdown 标识与非法截断问题，自研基于状态机与栈平衡括号匹配算法，将结构化解析崩溃率由 14.8% 降至 0%。',
-      '多引擎自适应路由：深度适配 DeepSeek、Gemini 与本地自建网关，前端支持无感切换 Base URL 与模型，兼具预置配额免密与 0 成本调用。',
-      '定制 PyInstaller 单文件落盘：通过运行时资源动态挂载与压缩编译，打包为 13.7MB 单文件免安装程序，实现极速双击秒启。'
+      '零成本确定性事实守门 (fact_guard.py)：使用 <TARGET_ROLE> / <UNTRUSTED_RESUME> / <UNTRUSTED_JOB_DESCRIPTION> 标签隔离不可信输入，在改写后校验原简历邮箱/URL/11 位手机号不丢失且无捏造黑名单实体；失败自动带因重试 1 次，仍败返回 HTTP 502 且绝不污染缓存。',
+      '防伪造头绕过的缓存限流系统 (quota.py)：采用 SHA-256 规范化请求键实现 6 小时 TTLCache 命中直出，并在信任代理下取最右可信跳 X-Forwarded-For 实施滑动窗口限流（5 次/小时），封堵假请求头绕过漏洞。',
+      '高保真 ReportLab PDF 导出引擎 (pdf_resume.py)：集成浏览器端 Tesseract.js OCR 与 pypdf 抽字（<=30000 字），内置 NotoSansSC 字体嵌入；extract_profile_photo 缺失证件照直接返回 422 拒绝静默丢照，遇 LayoutError 自动降级单栏稳定排版。',
+      'GitHub Actions CI 回归套件：沉淀 63 项 pytest 覆盖限流边界、fact_guard 幻觉拦截、文本简历校验与 PDF 导出契约。'
     ],
     metrics: [
-      '单文件体积仅 13.7 MB，冷启动耗时 < 1.2 秒',
-      '结构化数据解析崩溃率由 14.8% 彻底降至 0%',
-      '单机运行时内存仅 ~50 MB'
+      '63 项 pytest 自动化回归套件 100% 通过 (3.17s) · 接入 GitHub Actions CI',
+      'fact_guard.py 零额外 LLM 成本拦截联系方式丢失与实体捏造（仍败 502 不写缓存）',
+      '最右可信 X-Forwarded-For 限流防绕过 + 证件照缺失 422 显式拒导出'
     ],
-    techStack: ['Python 3.12', 'Bottle', 'WebView2', 'DeepSeek API', 'Google Gemini API', 'PyInstaller', 'HTML5/Tailwind'],
+    techStack: ['Python 3.12', 'FastAPI', 'ReportLab', 'Pydantic v2', 'Tesseract.js', 'pypdf', 'pytest'],
     links: [
       { label: 'GitHub 源码仓库 (aiqiuzhizhe)', url: 'https://github.com/zhangzhangwudi2-creator/aiqiuzhizhe', type: 'github' },
       { label: '飞书设计文档', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
@@ -36,34 +36,34 @@ export const PROJECTS_PART_2: ProjectDetail[] = [
   },
   {
     id: 'multimodal-pipeline-qa',
-    title: '多模态 AI 视频流水线与智能体控制台系统级自动化测试工程',
-    role: '测试开发与系统维护',
-    date: '2026.08 - 2026.09',
-    categories: ['qa'],
-    summary: '面向集成 DeepSeek、Wan 2.1 与 Faster-Whisper 的异步视频生产流水线，主导构建契约测试、乱序注入与规则守门的 pytest 系统级自动化套件。',
+    title: 'ContentOps Lab 多平台 AI 文案工作流与确定性规则质检台',
+    role: '全栈与评测工程设计',
+    date: '2026.07 - 2026.08',
+    categories: ['qa', 'fullstack'],
+    summary: '基于 React 19 + Express 4 + TypeScript 构建的多节点文案创作工作台（小红书/抖音/B站），以主动移除虚假流量预测、改建可解释 4 维规则质检为核心工程亮点。',
     pipeline: [
-      'pytest 169项套件',
-      'Mock/契约测试层',
-      '状态机超时/乱序注入',
-      'Claims Gate 规则级守门',
-      'CI/CD All Green'
+      '6 节点 Express 工作流',
+      '移除伪造 CTR/流量预测',
+      'contentEvaluator 4×25 打分',
+      'evidence[] 可定位溯源',
+      'node:test 确定性回归'
     ],
-    tags: ['pytest', '契约测试', 'Mock 回放 Fixture', '状态机乱序注入', 'Claims Gate', 'TTL 租约超时回滚'],
-    painPoint: '多模型异步拼接流水线链路极长，模型生成越界断言、状态机非法跳转与异步回调超时极易引发静默卡死或生成废片。',
+    tags: ['React 19', 'Express 4', 'TypeScript', 'contentEvaluator.ts', 'node:test', '反虚假指标工程'],
+    painPoint: '早期版本让大模型直接“预测点赞与 CTR 转化”，在无真实投放回流数据下既不可复现又容易制造虚假产品幻觉，无法支撑稳定的 Prompt 回归评测。',
     solution: [
-      '契约测试与 Mock 响应回放：针对脚本生成、分镜头拆解、语音合成等 11 个核心子模块，编写 169 项 pytest 自动化测试用例，采用 Mock Fixture 进行确定性响应回放。',
-      '有限状态机乱序与超时注入：针对「草稿 → 处理中 → 待审核 → 可导出」全周期，设计非法跳态与长超时注入测试，拦截 6 处异步状态机死锁边界漏洞，并推动引入 TTL 状态租约超时自动回滚机制。',
-      'Claims Gate 规则级守门机制：构建基于 Pydantic 强校验与实体交叉核对的守门机制，对预定义违规宣称与事实越界断言实现 100% 规则级前置阻断。'
+      '主动去伪指标重构 (commit 094b0ac)：识别并砍掉缺乏投放回流的“模拟流量预估”功能，把黑盒主观打分收敛为工程可解释、可回归的结构合规校验。',
+      '4 维确定性规则评测器 (contentEvaluator.ts)：按信息密度、平台格式规范、钩子与互动指令等 4 个维度各 25 分实施规则评分，每条扣分与加分均输出原文 evidence[] 证据片段并显式声明“不代表真实投放转化”。',
+      '多平台 Express 工作流闭环与测试：串联选题生成、标题优选、初稿撰写、跨平台适配（/quality-evaluate）与复盘进化 6 类接口，配套 tsx --test (2/2 node:test) 守护小红书信号加分与抖音缺镜提醒逻辑。'
     ],
     metrics: [
-      '169 项自动化测试用例全量执行，实现 100% 稳定通过 (All Green)',
-      '预定义违规宣称与事实越界断言实现 100% 规则级前置阻断',
-      '拦截 6 处异步状态机死锁漏洞，推动引入 TTL 超时租约回滚'
+      'tsx --test 2 项确定性规则评测回归 100% 通过（0.90s）',
+      '4×25 分规则引擎 100% 确定性复现并输出可定位 evidence[] 证据',
+      'commit 094b0ac 彻底消除无真实投放反馈的模拟流量/CTR 伪造指标'
     ],
-    techStack: ['Python', 'pytest', '契约测试', '状态机模型', 'Claims Gate 算法', 'Pydantic', 'Git Hooks'],
+    techStack: ['React 19', 'Express 4', 'TypeScript', 'Google GenAI SDK', 'node:test (tsx)', 'Tailwind CSS'],
     links: [
       { label: 'GitHub 源码仓库 (contentops-lab)', url: 'https://github.com/zhangzhangwudi2-creator/contentops-lab', type: 'github' },
-      { label: '飞书测试套件规范', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
+      { label: '飞书评测工程说明', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
     ]
   },
   {
