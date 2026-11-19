@@ -2,49 +2,48 @@ import { SkillCategory, TimelineItem } from './types';
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'AI 应用与全栈工程',
-    description: '深入模型原生协议与微服务架构，打造原生级轻量桌面应用',
+    title: 'AI 应用与原生桌面全栈',
+    description: '深入模型原生协议与桌面图形渲染，打造轻量高响应工程应用',
     skills: [
-      { name: 'Python (Bottle / FastAPI)', highlight: true },
-      { name: 'OpenAI API 协议', highlight: true },
-      { name: 'Google Gemini API', highlight: true },
-      { name: 'DeepSeek 系列', highlight: true },
-      { name: 'Edge WebView2 视窗容器' },
-      { name: 'PyInstaller 单文件落盘' },
-      { name: 'HTML5 / CSS3 / JavaScript' }
+      { name: 'Python (FastAPI / Bottle / Pydantic)', highlight: true },
+      { name: 'PySide6 (DWM 逐像素透明 / QThread)', highlight: true },
+      { name: 'Node.js 服务端代理与 SSE 流式传输', highlight: true },
+      { name: 'OpenAI / DeepSeek / Gemini 协议路由', highlight: true },
+      { name: 'Edge WebView2 & PyInstaller 单文件落盘' },
+      { name: 'React / TypeScript / Tailwind CSS' }
     ]
   },
   {
-    title: '无服务器与边缘计算',
-    description: '基于全球边缘计算与反向代理，打造 0 服务器成本高可用基建',
+    title: '多模态语音与 AIGC 管线',
+    description: '打通声学克隆、语音识别、分镜调度与剪映草稿工程化闭环',
     skills: [
-      { name: 'Cloudflare Workers / Pages', highlight: true },
-      { name: 'Cloudflare KV 键值数据库' },
-      { name: 'New API 多 Key 轮询调度', highlight: true },
-      { name: 'CloudflareST 节点测速优选' },
-      { name: '反向代理与隧道穿透' }
+      { name: 'GPT-SoVITS 推理代理与显存调度', highlight: true },
+      { name: 'Faster-Whisper 本地实时语音识别', highlight: true },
+      { name: 'pyJianYingDraft 剪映草稿自动化', highlight: true },
+      { name: 'rembg / ffmpeg 透明序列帧资产管线' },
+      { name: 'SillyTavern 世界书与持久化记忆引擎' }
     ]
   },
   {
-    title: 'Agent 评测与质量保障',
-    description: '量化模型推理边界，构建不可逆状态机与合规防御门禁',
+    title: 'Agent 评测与 4 层测试开发',
+    description: '量化推理边界，构建黑盒回归、状态机注入与合规防御门禁',
     skills: [
-      { name: 'pytest 自动化测试套件', highlight: true },
-      { name: 'Claims Gate 幻觉违规拦截', highlight: true },
-      { name: '状态机生命周期异常用例' },
-      { name: '原子化 Rubrics 评分规则 (25+ 条)', highlight: true },
-      { name: 'openpyxl 动态真值研制 (Ground Truth)' }
+      { name: '4 层黑盒 E2E 与恶意反例防御测试', highlight: true },
+      { name: 'pytest 契约测试与 Mock 回放套件', highlight: true },
+      { name: 'Claims Gate 幻觉阻断与故障转移路由', highlight: true },
+      { name: '原子化 Rubrics 评分矩阵 (25+ 条)' },
+      { name: 'openpyxl 动态真值研制 (200+ 公式)' }
     ]
   },
   {
-    title: '工程工具与数据底座',
-    description: '扎实的计算机核心素养与敏捷工程规范',
+    title: '边缘网关与安全运维',
+    description: '基于隧道穿透、回环收敛与数据滚动备份打造零暴露基础设施',
     skills: [
-      { name: 'MySQL / SQLite' },
-      { name: 'Linux / Bash 脚本' },
-      { name: 'Git 版本控制' },
-      { name: 'RESTful API 架构规范' },
-      { name: '自动化脚本编排' }
+      { name: 'Cloudflare Pages / Tunnel (CF-Connecting-IP)', highlight: true },
+      { name: 'NewAPI 多渠道探活与 429 自动熔断', highlight: true },
+      { name: 'SQLite WAL 在线备份与数据隔离' },
+      { name: '环境变量凭据隔离与日志正则脱敏' },
+      { name: 'Git / Linux / PowerShell 自动化编排' }
     ]
   }
 ];
@@ -64,7 +63,7 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   {
     period: '2023.09 - 2027.07',
     org: '长春科技学院',
-    role: '数据科学与大数据技术 · 统招全日制本科（2027届）',
+    role: '数据科学与大数据技术 · 统招全日制本科（2027 届）',
     city: '长春',
     badge: '班级学习委员',
     highlights: [

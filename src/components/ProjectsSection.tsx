@@ -80,7 +80,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
+              role="button"
+              tabIndex={0}
               onClick={() => setSelectedProject(project)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedProject(project);
+                }
+              }}
               className={`sticker-card overflow-hidden cursor-pointer flex flex-col justify-between group ${
                 index === 0 && activeTab === 'all' ? 'md:col-span-2' : ''
               }`}

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Sparkles, Terminal, ShieldCheck, Activity, RefreshCw } from 'lucide-react';
 
 const QUOTES = [
-  '🦫 噜噜认证：Bass 方程拟合 R² > 0.96，稳如老豚！',
-  '🦖 奶龙大肚皮 vs 我的 13.7MB 极简小体积！',
-  '🍊 只要情绪像水豚一样稳定，上游 429 熔断就追不上我！',
-  '🐧 咕咕嘎嘎！精神状态与 169 项 pytest 一样全绿 🟢',
-  '🦫 豚门永存！无惧网络抖动，双模穿透稳如泰山！'
+  '🦫 噜噜认证：Bass 方程拟合 R² > 0.96，92 项桌宠 pytest 全绿！',
+  '🦖 奶龙大肚皮 vs 我的 13.7MB 极简单文件 + 50MB 真透明桌宠！',
+  '🍊 TTS 缓存命中仅 14ms，76 项酒馆黑盒 E2E 与 6 个反例全防住！',
+  '🎬 小说直通剪映草稿 41 项全绿，密钥正则脱敏绝不裸奔！',
+  '🐧 咕咕嘎嘎！全栈 378 项自动化测试通通 All Green 🟢'
 ];
 
 type MascotTab = 'lulu' | 'nailong' | 'guga';
@@ -49,18 +49,18 @@ export const CapybaraWidget: React.FC<CapybaraWidgetProps> = ({ isGuguMode }) =>
           </div>
           <span className="px-1.5 py-0.5 rounded bg-[#2B8A3E] text-white font-bold text-[10px]">ONLINE</span>
         </div>
-        <div className="space-y-2.5 text-[11px]">
+        <div className="space-y-2 text-[11px]">
           <div className="flex justify-between items-center p-2 rounded-lg bg-[#FFFDF7] dark:bg-black/30 border border-[#2C221E]/30">
             <span className="text-zinc-500 flex items-center gap-1"><Activity className="w-3.5 h-3.5 text-[#F76707]" /> Bass ODE Fit</span>
-            <span className="font-black">R² = 0.963 (NLS)</span>
+            <span className="font-black">R² = 0.9612 (NLS)</span>
           </div>
           <div className="flex justify-between items-center p-2 rounded-lg bg-[#FFFDF7] dark:bg-black/30 border border-[#2C221E]/30">
-            <span className="text-zinc-500 flex items-center gap-1"><Terminal className="w-3.5 h-3.5 text-[#2B8A3E]" /> Edge Gateway</span>
-            <span className="font-black text-[#2B8A3E]">10 Ch · 178ms RTT</span>
+            <span className="text-zinc-500 flex items-center gap-1"><Terminal className="w-3.5 h-3.5 text-[#2B8A3E]" /> Tavern &amp; TTS</span>
+            <span className="font-black text-[#2B8A3E]">76/76 E2E · 14ms</span>
           </div>
           <div className="flex justify-between items-center p-2 rounded-lg bg-[#FFFDF7] dark:bg-black/30 border border-[#2C221E]/30">
-            <span className="text-zinc-500 flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-[#F76707]" /> Pytest & Gate</span>
-            <span className="font-black">169/169 PASS (100%)</span>
+            <span className="text-zinc-500 flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-[#F76707]" /> Lulu &amp; Flow QA</span>
+            <span className="font-black">92 + 41 + 169 PASS</span>
           </div>
         </div>
       </div>

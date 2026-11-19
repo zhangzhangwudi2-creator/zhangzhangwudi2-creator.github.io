@@ -2,6 +2,39 @@ import { ProjectDetail } from './types';
 
 export const PROJECTS_PART_2: ProjectDetail[] = [
   {
+    id: 'ai-job-assistant',
+    title: '面向求职场景的智能诊断 Agent 与多引擎全栈桌面系统 (AI求职助手)',
+    role: '独立全栈开发',
+    date: '2026.09 - 2026.10',
+    categories: ['fullstack', 'qa'],
+    summary: '针对求职者简历质量参差且模型调用昂贵的痛点，开发融合简历深度诊断、STAR 法则润色与面试题预测的桌面级智能体应用。',
+    pipeline: [
+      'Edge WebView2 原生视窗',
+      'Python Bottle 微服务',
+      '状态机与栈平衡括号匹配',
+      '多引擎自适应路由',
+      'PyInstaller 13.7MB 单文件落盘'
+    ],
+    tags: ['Python', 'Bottle', 'WebView2', '栈平衡括号匹配', 'DeepSeek API', 'PyInstaller'],
+    painPoint: '普通求职者难以定位简历软肋，直接调用商业大模型成本高昂，且多渠道反代下模型输出易夹带 Markdown 代码块或尾部截断导致解析崩溃。',
+    solution: [
+      '前后端同构轻量化架构：采用 Python Bottle 微服务结合 Edge WebView2 原生视窗，摆脱 Electron 笨重依赖，内存占用仅 50MB。',
+      '自研状态机与栈平衡括号匹配引擎：针对大模型输出易夹带 Markdown 标识与非法截断问题，自研基于状态机与栈平衡括号匹配算法，将结构化解析崩溃率由 14.8% 降至 0%。',
+      '多引擎自适应路由：深度适配 DeepSeek、Gemini 与本地自建网关，前端支持无感切换 Base URL 与模型，兼具预置配额免密与 0 成本调用。',
+      '定制 PyInstaller 单文件落盘：通过运行时资源动态挂载与压缩编译，打包为 13.7MB 单文件免安装程序，实现极速双击秒启。'
+    ],
+    metrics: [
+      '单文件体积仅 13.7 MB，冷启动耗时 < 1.2 秒',
+      '结构化数据解析崩溃率由 14.8% 彻底降至 0%',
+      '单机运行时内存仅 ~50 MB'
+    ],
+    techStack: ['Python 3.12', 'Bottle', 'WebView2', 'DeepSeek API', 'Google Gemini API', 'PyInstaller', 'HTML5/Tailwind'],
+    links: [
+      { label: 'GitHub 源码仓库 (aiqiuzhizhe)', url: 'https://github.com/zhangzhangwudi2-creator/aiqiuzhizhe', type: 'github' },
+      { label: '飞书设计文档', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
+    ]
+  },
+  {
     id: 'multimodal-pipeline-qa',
     title: '多模态 AI 视频流水线与智能体控制台系统级自动化测试工程',
     role: '测试开发与系统维护',
@@ -52,7 +85,7 @@ export const PROJECTS_PART_2: ProjectDetail[] = [
     solution: [
       '长程推理算例设计：构建包含复利净值、动态峰值追踪及最大回撤等高阶金融指标的多步推导真实业务算例。',
       '自动化零误差真值研制：利用 Python openpyxl 编写动态公式求解器，自动化生成含 200+ 单元格动态关联的 Ground Truth 标准答案，彻底杜绝人工误差。',
-      '原子化 Rubrics 评分矩阵：独创 25+ 条微观细则，设定核心推导逻辑一票否决、矛盾数据扣分及 ±1% 科学浮动容差边界。'
+      '原子化 Rubrics 评分矩阵：独创 25+ 条微观细则，设定核心推导公式一票否决、矛盾数据扣分及 ±1% 科学浮动容差边界。'
     ],
     metrics: [
       '自动生成含 200+ 动态关联公式的 100% 零误差金标真值',

@@ -29,24 +29,56 @@ export const BentoVisual: React.FC<BentoVisualProps> = ({ metricId }) => {
 
     case 'tavern-channels':
       return (
-        <div className="my-2.5 p-2.5 rounded-xl bg-oatmeal dark:bg-black/30 border-2 border-coffee/20 dark:border-white/10">
-          <div className="flex justify-between text-[10px] font-mono font-bold text-zinc-500 mb-1.5">
-            <span>10-Ch Load Balancer Pool</span>
-            <span className="text-matcha">9 Active · 1 Rerouted</span>
+        <div className="my-2.5 p-2.5 rounded-xl bg-oatmeal dark:bg-black/30 border-2 border-coffee/20 dark:border-white/10 font-mono text-[10px]">
+          <div className="flex justify-between font-bold text-zinc-500 mb-1.5">
+            <span>DeepSeek 773ms + 4×Gemini</span>
+            <span className="text-matcha">TTS LRU 14ms · 76/76</span>
           </div>
           <div className="grid grid-cols-5 gap-1.5">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((ch) => (
+            {['DS主力', 'G14', 'G15', 'G20', 'G21'].map((tag, idx) => (
               <div
-                key={ch}
-                className={`py-1 rounded border border-coffee text-[9px] font-mono font-black text-center ${
-                  ch === 7
-                    ? 'bg-nailong text-coffee animate-pulse'
-                    : 'bg-matcha/90 text-white'
+                key={tag}
+                className={`py-1 rounded border border-coffee text-[9px] font-black text-center ${
+                  idx === 0 ? 'bg-nailong text-coffee' : 'bg-matcha/90 text-white'
                 }`}
-                title={ch === 7 ? 'Ch-07 触发 429 阈值，已自动旁路熔断切换' : `Ch-0${ch} 正常 (RTT ~178ms)`}
               >
-                {ch === 7 ? '429↻' : `CH${ch}`}
+                {tag}
               </div>
+            ))}
+          </div>
+        </div>
+      );
+
+    case 'lulu-pet-qa':
+      return (
+        <div className="my-2.5 p-2.5 rounded-xl bg-oatmeal dark:bg-black/30 border-2 border-coffee/20 dark:border-white/10 font-mono text-[10px]">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="font-bold text-coffee dark:text-nailong">ARGB32 · ~50MB RAM</span>
+            <span className="px-1.5 py-0.2 rounded bg-matcha text-white font-black">92/92 PASS</span>
+          </div>
+          <div className="grid grid-cols-4 gap-1 text-[9px] text-center font-bold">
+            {['TTS 16', '精灵 43', '窗口 14', '小游戏 19'].map((m) => (
+              <div key={m} className="py-1 rounded bg-white dark:bg-zinc-800 border border-coffee/40">
+                {m}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+
+    case 'novel-video-flow':
+      return (
+        <div className="my-2.5 p-2.5 rounded-xl bg-oatmeal dark:bg-black/30 border-2 border-coffee/20 dark:border-white/10 font-mono text-[10px]">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="font-bold text-capy-dark dark:text-nailong">429 Failover + 脱敏</span>
+            <span className="px-1.5 py-0.2 rounded bg-matcha text-white font-black">41/41 PASS</span>
+          </div>
+          <div className="flex items-center justify-between gap-1 text-[9px] font-bold">
+            {['剧本', '拆镜', 'Flow', '剪映'].map((step, i) => (
+              <React.Fragment key={step}>
+                <span className="flex-1 text-center py-0.5 rounded bg-white dark:bg-zinc-800 border border-coffee/40">{step}</span>
+                {i < 3 && <span className="text-capy font-black">➔</span>}
+              </React.Fragment>
             ))}
           </div>
         </div>

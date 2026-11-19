@@ -1,5 +1,5 @@
 import React from 'react';
-import { PERSONAL_INFO, CORE_METRICS } from '../data/resumeData';
+import { PERSONAL_INFO, CORE_METRICS, PROJECTS_DATA } from '../data/resumeData';
 import { CapybaraWidget } from './CapybaraWidget';
 import { BentoVisual } from './BentoVisuals';
 import { ArrowRight, Sparkles, Award, MapPin } from 'lucide-react';
@@ -59,7 +59,7 @@ export const HeroBento: React.FC<HeroBentoProps> = ({ isGuguMode, onSelectProjec
                 href="#projects"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-coffee bg-capy hover:bg-capy-dark text-white text-xs sm:text-sm font-black shadow-brutal transition-all hover:-translate-y-0.5"
               >
-                <span>查看 5 大实战项目与架构图</span>
+                <span>查看 {PROJECTS_DATA.length} 大实战项目与架构图</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
@@ -84,7 +84,7 @@ export const HeroBento: React.FC<HeroBentoProps> = ({ isGuguMode, onSelectProjec
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-capy" />
               <h2 className="text-xs sm:text-sm font-black tracking-wider text-coffee dark:text-zinc-200 uppercase font-mono">
-                BENTO ENGINEERING TELEMETRY · 5 大核心量化指标看板
+                BENTO ENGINEERING TELEMETRY · {CORE_METRICS.length} 大核心量化指标看板
               </h2>
             </div>
             <span className="text-xs font-extrabold text-capy-dark dark:text-nailong">
@@ -93,14 +93,21 @@ export const HeroBento: React.FC<HeroBentoProps> = ({ isGuguMode, onSelectProjec
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4">
-            {CORE_METRICS.map((metric, index) => {
-              const colSpanClass =
-                index < 3 ? 'md:col-span-2 lg:col-span-4' : 'md:col-span-3 lg:col-span-6';
+            {CORE_METRICS.map((metric) => {
+              const colSpanClass = 'md:col-span-3 lg:col-span-4';
 
               return (
                 <div
                   key={metric.id}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => handleMetricClick(metric.targetProjectId)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleMetricClick(metric.targetProjectId);
+                    }
+                  }}
                   className={`sticker-card p-5 cursor-pointer flex flex-col justify-between group relative overflow-hidden ${colSpanClass}`}
                 >
                   <div>
@@ -114,7 +121,7 @@ export const HeroBento: React.FC<HeroBentoProps> = ({ isGuguMode, onSelectProjec
                     </div>
 
                     <div className="flex items-baseline gap-2">
-                      <div className="text-2xl sm:text-3xl font-black text-coffee dark:text-white tracking-tight font-mono group-hover:text-capy transition-colors">
+                      <div className="text-2xl sm:text-3xl font-black text-coffee dark:text-white tracking-tight font-mono group-hover:text-capy transition-colors shrink-0 whitespace-nowrap">
                         {metric.value}
                       </div>
                       <div className="text-xs sm:text-sm font-extrabold text-coffee dark:text-zinc-200">

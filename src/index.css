@@ -90,3 +90,15 @@ html.dark .sticker-card:hover {
 .shadow-brutal { box-shadow: 4px 4px 0px #2C221E; }
 html.dark .shadow-brutal-sm { box-shadow: 2px 2px 0px #000000; }
 html.dark .shadow-brutal { box-shadow: 4px 4px 0px #000000; }
+
+/* 原生模态框顶层滚动隔离与毛玻璃遮罩（遵循 modern-web-guidance 规范） */
+dialog.project-dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog.project-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}

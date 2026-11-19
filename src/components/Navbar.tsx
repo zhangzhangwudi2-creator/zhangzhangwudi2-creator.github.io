@@ -1,5 +1,5 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../data/resumeData';
+import { PERSONAL_INFO, PROJECTS_DATA } from '../data/resumeData';
 import { Sun, Moon, FileDown, ExternalLink } from 'lucide-react';
 
 interface NavbarProps {
@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="hidden md:flex items-center gap-6 text-xs font-bold text-coffee dark:text-zinc-300">
           <a href="#about" className="hover:text-capy-dark dark:hover:text-nailong transition-colors">关于我</a>
           <a href="#metrics" className="hover:text-capy-dark dark:hover:text-nailong transition-colors">核心看板</a>
-          <a href="#projects" className="hover:text-capy-dark dark:hover:text-nailong transition-colors">精选项目 (5)</a>
+          <a href="#projects" className="hover:text-capy-dark dark:hover:text-nailong transition-colors">精选项目 ({PROJECTS_DATA.length})</a>
           <a href="#experience" className="hover:text-capy-dark dark:hover:text-nailong transition-colors">经历与荣誉</a>
           <a href="#contact" className="hover:text-capy-dark dark:hover:text-nailong transition-colors">联系方式</a>
         </nav>

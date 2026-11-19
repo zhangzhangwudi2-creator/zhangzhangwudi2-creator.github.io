@@ -12,10 +12,25 @@ export const Footer: React.FC = () => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [showPhone, setShowPhone] = useState(false);
 
-  const copyToClipboard = (text: string, key: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedKey(key);
-    setTimeout(() => setCopiedKey(null), 2000);
+  const copyToClipboard = async (text: string, key: string) => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(null), 2000);
+    } catch {
+      /* ignore clipboard permission denial */
+    }
   };
 
   return (
@@ -135,7 +150,7 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} {PERSONAL_INFO.name}. 奶龙水豚贴纸风 · 稳如老豚 🦫🦖
           </div>
           <div className="font-mono text-zinc-500">
-            Deployed on Cloudflare Pages / Vercel
+            Cloudflare Pages (cv.zfzs.lol) · GitHub Pages
           </div>
         </div>
       </div>
