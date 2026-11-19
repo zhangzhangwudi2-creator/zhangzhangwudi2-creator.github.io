@@ -2,99 +2,81 @@ import { ProjectDetail } from './types';
 
 export const PROJECTS_PART_2: ProjectDetail[] = [
   {
-    id: 'ai-job-assistant',
-    title: 'AI 求职助手 Web/CI 生产级服务与大模型事实守门系统 (aiqiuzhizhe-publish)',
-    role: '独立全栈开发 · 安全与 QA 架构',
-    date: '2026.08 - 2026.10',
+    id: 'kerren-tiktok-workflow',
+    index: '04',
+    title: 'TikTok 电商视频脚本与分镜工作台',
+    subtitle: '杭州凯伦广告实习项目 · 离职时做到一半并完成源码交接',
+    role: 'AI 应用开发实习生',
+    date: '2026.07 – 2026.08',
+    status: '阶段交接',
+    statusNote: '完成控制台、脚本/分镜改写与样片打包；TikTok 稳定爬取与全自动剪辑未完成',
+    summary:
+      '暑期在杭州凯伦实习期间参与搭的 Windows 本地 Web 平台（FastAPI），目标是把找参考视频、生成带货脚本/分镜提示词、调视频 API 和导出给剪辑师串起来；离职前跑通了控制台和单条样片交接，但整条链路没有全部做完。',
+    categories: ['fullstack', 'wip'],
+    media: {
+      type: 'image',
+      src: '/media/tiktok-workflow-ui.jpg',
+      caption: '空数据沙箱本地渲染的 FastAPI 控制台界面（已隐藏任何业务与客户信息）',
+    },
+    whatIDid: [
+      '用 FastAPI 搭起任务列表、新建任务、素材上传、远程视频直链导入与多 URL 候选池页面，状态落盘到本地 JSON 并带 run_manifest / audit 记录。',
+      '接入 DeepSeek 脚本与分镜生成、人工审核门禁、Prompt 编辑重写，以及 Wan 视频生成 API 适配层，补了导出 ZIP 顺序缺陷并跑通 1 套带字幕和分镜说明的 CapCut 样片交接包。',
+      '离职前整理了 7 份交接文档（运行方式、功能状态表、未完成清单与安全边界），明确区分已验证模块和未验证模块，方便接手人继续开发。',
+    ],
+    honestLimits:
+      '明确未完成部分：TikTok 爆款自动抓取受平台反爬和登录限制，仅写到 yt-dlp 公开元数据与单测原型；自动剪辑成片、批量夜间任务以及发布后的数据回填在离职时均未做完。遵循实习保密约定，本站不公开源码与任何公司业务数据。',
+    techStack: ['Python', 'FastAPI', 'DeepSeek API', 'Wan API 适配', 'FFmpeg', 'yt-dlp 原型', 'pytest'],
+  },
+  {
+    id: 'local-tts-gateway-toolkit',
+    index: '05',
+    title: '本地语音转发代理与服务控制面板',
+    subtitle: '个人自用折腾工具 · 显存冲突保护、LRU 缓存与桌面启停窗',
+    role: '个人自用工具',
+    date: '2026.10 – 2026.11',
+    status: '个人工具',
+    statusNote: '纯个人自用配套工具，不对外公开服务入口',
+    summary:
+      '自己折腾本地大模型聊天和克隆语音配音时写的辅助工程：解决 6GB 显卡跑语音合成与其它本地程序抢显存崩溃、重复台词合成慢、每次启停要开四五个黑框的问题。',
     categories: ['fullstack', 'qa'],
-    summary: '面向公开公网部署的 FastAPI + ReportLab 简历诊断与定向重构服务，聚焦防提示词注入、联系方式/教育背景防篡改、防绕过限流与保真 PDF 导出。',
-    pipeline: [
-      'Tesseract.js 浏览器 OCR',
-      'SHA-256 6h 缓存 + XFF 防绕过限流',
-      'XML 标签边界隔离',
-      'fact_guard.py 确定性防篡改',
-      'ReportLab 无照 422 拦截 + 双/单栏降级'
+    media: {
+      type: 'image',
+      src: '/media/tavern-panel.jpg',
+      caption: 'PySide6 本地服务控制面板实拍（已脱敏，不展示任何个人公网地址）',
+    },
+    whatIDid: [
+      '用 Node.js 给本地 GPT-SoVITS 语音接口套了一层代理：限制排队上限（最多 6 个，超出返回 429）、转发前检测本机其它占显存端口（8188/9888）避免显存打架崩溃，并加了 16 条内存 LRU 缓存（重复台词命中后从 ~2 秒降到 14 毫秒）。',
+      '用 PySide6 写了桌面控制面板统一查看本地服务状态、启停和日志，同时把隧道脚本里的令牌改成了环境变量传入，避免命令行参数直接暴露凭据。',
+      '用 Python 标准库写了一套 76 项黑盒检查脚本（含 6 项非法输入反例），用来在改完配置或插件后快速回归，当前 76/76 通过（7.47 秒）。',
     ],
-    tags: ['FastAPI v1.2.0', 'ReportLab', 'fact_guard.py', 'Tesseract.js', 'X-Forwarded-For 限流', '63项 pytest'],
-    painPoint: '公网简历改写服务易遭客户端伪造 X-Forwarded-For 刷额度，模型改写常丢删手机号/邮箱或捏造名校履历，且无头容器导出中文 PDF 易丢失证件照或排版溢出。',
-    solution: [
-      '零成本确定性事实守门 (fact_guard.py)：使用 <TARGET_ROLE> / <UNTRUSTED_RESUME> / <UNTRUSTED_JOB_DESCRIPTION> 标签隔离不可信输入，在改写后校验原简历邮箱/URL/11 位手机号不丢失且无捏造黑名单实体；失败自动带因重试 1 次，仍败返回 HTTP 502 且绝不污染缓存。',
-      '防伪造头绕过的缓存限流系统 (quota.py)：采用 SHA-256 规范化请求键实现 6 小时 TTLCache 命中直出，并在信任代理下取最右可信跳 X-Forwarded-For 实施滑动窗口限流（5 次/小时），封堵假请求头绕过漏洞。',
-      '高保真 ReportLab PDF 导出引擎 (pdf_resume.py)：集成浏览器端 Tesseract.js OCR 与 pypdf 抽字（<=30000 字），内置 NotoSansSC 字体嵌入；extract_profile_photo 缺失证件照直接返回 422 拒绝静默丢照，遇 LayoutError 自动降级单栏稳定排版。',
-      'GitHub Actions CI 回归套件：沉淀 63 项 pytest 覆盖限流边界、fact_guard 幻觉拦截、文本简历校验与 PDF 导出契约。'
-    ],
-    metrics: [
-      '63 项 pytest 自动化回归套件 100% 通过 (3.17s) · 接入 GitHub Actions CI',
-      'fact_guard.py 零额外 LLM 成本拦截联系方式丢失与实体捏造（仍败 502 不写缓存）',
-      '最右可信 X-Forwarded-For 限流防绕过 + 证件照缺失 422 显式拒导出'
-    ],
-    techStack: ['Python 3.12', 'FastAPI', 'ReportLab', 'Pydantic v2', 'Tesseract.js', 'pypdf', 'pytest'],
-    links: [
-      { label: 'GitHub 源码仓库 (aiqiuzhizhe)', url: 'https://github.com/zhangzhangwudi2-creator/aiqiuzhizhe', type: 'github' },
-      { label: '飞书设计文档', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
-    ]
+    honestLimits:
+      '本质是个人日常折腾和学习用的本地配套工具（调用现成开源前端与本地转发），纯个人自用，不对外开放任何访问链接。',
+    techStack: ['Node.js', 'Python 3.12', 'PySide6', 'GPT-SoVITS', 'SQLite WAL', 'Cloudflare Tunnel'],
   },
   {
-    id: 'multimodal-pipeline-qa',
-    title: 'ContentOps Lab 多平台 AI 文案工作流与确定性规则质检台',
-    role: '全栈与评测工程设计',
-    date: '2026.07 - 2026.08',
-    categories: ['qa', 'fullstack'],
-    summary: '基于 React 19 + Express 4 + TypeScript 构建的多节点文案创作工作台（小红书/抖音/B站），以主动移除虚假流量预测、改建可解释 4 维规则质检为核心工程亮点。',
-    pipeline: [
-      '6 节点 Express 工作流',
-      '移除伪造 CTR/流量预测',
-      'contentEvaluator 4×25 打分',
-      'evidence[] 可定位溯源',
-      'node:test 确定性回归'
+    id: 'ai-novel-video-studio',
+    index: '06',
+    title: 'AI 小说转漫剧分镜与剪映草稿工作台',
+    subtitle: '业余实验项目（开发中 · 尚未完成真出片闭环）',
+    role: '独立开发中',
+    date: '2026.11 – 至今',
+    status: '开发中',
+    statusNote: '未完成：本地模块与 81 项 Mock 测试通过，尚未完成真实出片验证',
+    summary:
+      '想把小说章节自动拆成 4~6 秒分镜提示词、调工具生图生视频再拼成剪映草稿的实验工具。目前只把核心模块、故障转移路由和本地测试跑通，还没做到稳定出片。',
+    categories: ['wip', 'qa'],
+    media: {
+      type: 'image',
+      src: '/media/novel-video-ui.jpg',
+      caption: '本地运行中的 FastAPI 分镜工作台界面（仍在迭代中）',
+    },
+    whatIDid: [
+      '搭通了小说 SQLite 章节读取、场景拆解、4~6 秒分镜提示词校验和 pyJianYingDraft 剪映草稿导出（含 UTF-8 BOM 字幕）。',
+      '写了单并发顺序故障转移路由（SequentialFailoverRouter）：支持仅配本地中转时自动切 OpenAI 协议、本地回环自动关闭代理环境变量防劫持、429 轮转与日志正则脱敏密钥。',
+      '排查并修掉了调用 gflow project create 时的位置参数错配 Bug，分镜回退时显式记录原因而不再静默吞错；目前 81 项单元与 Mock E2E 测试全部通过（27.21 秒）。',
     ],
-    tags: ['React 19', 'Express 4', 'TypeScript', 'contentEvaluator.ts', 'node:test', '反虚假指标工程'],
-    painPoint: '早期版本让大模型直接“预测点赞与 CTR 转化”，在无真实投放回流数据下既不可复现又容易制造虚假产品幻觉，无法支撑稳定的 Prompt 回归评测。',
-    solution: [
-      '主动去伪指标重构 (commit 094b0ac)：识别并砍掉缺乏投放回流的“模拟流量预估”功能，把黑盒主观打分收敛为工程可解释、可回归的结构合规校验。',
-      '4 维确定性规则评测器 (contentEvaluator.ts)：按信息密度、平台格式规范、钩子与互动指令等 4 个维度各 25 分实施规则评分，每条扣分与加分均输出原文 evidence[] 证据片段并显式声明“不代表真实投放转化”。',
-      '多平台 Express 工作流闭环与测试：串联选题生成、标题优选、初稿撰写、跨平台适配（/quality-evaluate）与复盘进化 6 类接口，配套 tsx --test (2/2 node:test) 守护小红书信号加分与抖音缺镜提醒逻辑。'
-    ],
-    metrics: [
-      'tsx --test 2 项确定性规则评测回归 100% 通过（0.90s）',
-      '4×25 分规则引擎 100% 确定性复现并输出可定位 evidence[] 证据',
-      'commit 094b0ac 彻底消除无真实投放反馈的模拟流量/CTR 伪造指标'
-    ],
-    techStack: ['React 19', 'Express 4', 'TypeScript', 'Google GenAI SDK', 'node:test (tsx)', 'Tailwind CSS'],
-    links: [
-      { label: 'GitHub 源码仓库 (contentops-lab)', url: 'https://github.com/zhangzhangwudi2-creator/contentops-lab', type: 'github' },
-      { label: '飞书评测工程说明', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
-    ]
+    honestLimits:
+      '仍在开发中：尚未填入正式账号跑通连续生成真实视频素材，当前验证均基于本地 Mock 和干跑模式。',
+    techStack: ['Python 3.12', 'FastAPI', 'Pydantic v2', 'pyJianYingDraft', 'gflow-cli', 'pytest'],
   },
-  {
-    id: 'talentsai-eval-benchmark',
-    title: '面向复杂金融计算场景的大模型基准评测与对齐工程 (TalentsAI 专项)',
-    role: '独立主导评测设计',
-    date: '2026.07 - 2026.08',
-    categories: ['qa'],
-    summary: '针对大模型在长程数学推导与复合逻辑场景下的幻觉短板，构建金融级自动化评测基准、动态公式真值与原子化评分标准。',
-    pipeline: [
-      '长程金融复合算例设计',
-      'openpyxl 动态公式求解器',
-      '200+ 单元格 Ground Truth',
-      '25+ 条原子化 Rubrics 矩阵',
-      '大模型长程对齐判定'
-    ],
-    tags: ['大模型评测', 'Ground Truth 自动化', 'openpyxl', 'Rubrics 评分矩阵', '长程多步推导', '一票否决门禁'],
-    painPoint: '通用评测集多为简短问答，无法有效检验大语言模型在包含跨表引用、动态峰值与复合收益计算时的长程逻辑一致性与计算精度。',
-    solution: [
-      '长程推理算例设计：构建包含复利净值、动态峰值追踪及最大回撤等高阶金融指标的多步推导真实业务算例。',
-      '自动化零误差真值研制：利用 Python openpyxl 编写动态公式求解器，自动化生成含 200+ 单元格动态关联的 Ground Truth 标准答案，彻底杜绝人工误差。',
-      '原子化 Rubrics 评分矩阵：独创 25+ 条微观细则，设定核心推导公式一票否决、矛盾数据扣分及 ±1% 科学浮动容差边界。'
-    ],
-    metrics: [
-      '自动生成含 200+ 动态关联公式的 100% 零误差金标真值',
-      '制定 25+ 条标准化 Rubrics，实现评测结果 100% 可解释与可复现',
-      '精确捕获大模型在多步长程推理中 8 处逻辑退化反例'
-    ],
-    techStack: ['Python', 'openpyxl', 'TalentsAI 评测平台', 'Rubrics 规范', '金融长程逻辑对齐'],
-    links: [
-      { label: '飞书评测案例文档', url: 'https://lcn240mx3b00.feishu.cn', type: 'doc' }
-    ]
-  }
 ];

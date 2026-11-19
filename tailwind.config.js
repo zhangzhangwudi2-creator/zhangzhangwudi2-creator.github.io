@@ -8,31 +8,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 奶龙明黄与水豚柑橘
-        nailong: '#FFD43B',
-        'nailong-dark': '#E0AC00',
-        capy: '#FF922B',
-        'capy-dark': '#E8590C',
-        matcha: '#2B8A3E',
-        // 咖啡黑与暖深色
-        coffee: '#2C221E',
-        'coffee-light': '#4A3F35',
-        oatmeal: '#FFFDF7',
-        'dark-oat': '#181512',
-        'dark-surface': '#241F1B',
-      },
-      boxShadow: {
-        'brutal-sm': '2px 2px 0px #2C221E',
-        'brutal': '4px 4px 0px #2C221E',
-        'brutal-lg': '6px 6px 0px #2C221E',
-        'brutal-dark': '4px 4px 0px #000000',
-        'brutal-dark-lg': '6px 6px 0px #000000',
+        paper: '#F7F6F2',
+        surface: '#FFFFFF',
+        ink: '#141413',
+        muted: '#5C5B57',
+        hairline: '#E4E2DA',
+        accent: '#B8502C',
+        'accent-soft': '#F4ECE6',
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'Menlo', 'monospace'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      }
+        serif: ['"Noto Serif SC"', '"Songti SC"', 'Georgia', 'serif'],
+        sans: ['"PingFang SC"', '"Microsoft YaHei"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
     },
   },
   plugins: [],
-}
+};

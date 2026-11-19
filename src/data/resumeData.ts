@@ -1,4 +1,4 @@
 export * from './types';
-export * from './profileData';
-export * from './skillsAndTimelineData';
-export * from './projectsData';
+export { PERSONAL_INFO, SNAPSHOT_FACTS } from './profileData';
+export { PROJECTS_DATA } from './projectsData';
+export { SKILL_GROUPS, EXPERIENCE_ITEMS } from './skillsAndTimelineData';
