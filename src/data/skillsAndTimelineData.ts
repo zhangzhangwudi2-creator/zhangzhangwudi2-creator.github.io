@@ -11,7 +11,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     title: '大模型接入与质量验证',
-    items: ['结构化 Prompt 与事实护栏', 'DeepSeek / Gemini / OpenAI 协议', 'pytest 回归与反例测试', '错误分类与日志脱敏', 'Streamlit 数据看板'],
+    items: ['结构化 Prompt 与事实护栏', 'DeepSeek / Gemini / OpenAI 协议', 'pytest 回归与反例测试', '错误分类与日志脱敏', 'FastAPI / Streamlit 数据看板'],
   },
 ];
 

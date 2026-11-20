@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
 };
 
 export const SNAPSHOT_FACTS = [
-  { label: '01 / 毕设实证库', value: '2,329 款商品', note: '1,705 卖家 · 40 件满 6 期真实面板' },
+  { label: '01 / 毕设实证库', value: '2,889 款商品', note: '2,075 卖家 · 48 件满 6 期真实面板' },
   { label: '02 / 自动化测试', value: '220+ 项', note: '求职助手 63 · 工具箱 76 · 漫剧管线 81' },
   { label: '03 / 桌面客户端', value: '~50 MB 内存', note: 'PySide6 真透明桌宠 · 146 项测试集' },
   { label: '04 / 暑期实习', value: '杭州凯伦', note: '公司官网设计原型 · TikTok 视频工作台' },
